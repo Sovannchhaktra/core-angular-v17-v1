@@ -1,0 +1,52 @@
+<div class="grid" *ngIf="loadingService.isLoading;else f;">
+    <div class="col">
+        Loading ...
+    </div>
+</div>
+<ng-template #f>
+    <form [formGroup]="form" (submit)="submit()">
+        <div class="grid">
+            <div class="col-4">
+                <h3 *ngIf="this.id; else add">Edit Customer</h3>
+                <ng-template #add><h3>Add Customer</h3></ng-template>
+            </div>
+            <div class="col-8 text-right">
+                <p-button type="button" label="Back to list" icon="pi pi-arrow-left" routerLink="/customer/list"
+                          styleClass="p-button-secondary mr-1"></p-button>
+                <button pButton type="submit" label="Save" icon="pi pi-save"></button>
+            </div>
+        </div>
+        <div class="card">
+            <div class="grid p-fluid">
+                <div class="col-12 md:col-4">
+                    <div class="field">
+                        <label for="name">Customer name <span class="required"></span></label>
+                        <input pInputText id="name" type="text" formControlName="customerName"/>
+                    </div>
+                    <div class="field">
+                        <label for="gender">Gender <span class="required"></span></label>
+                        <div>
+                            <p-radioButton name="gender" id="gender" value="MALE" formControlName="gender"
+                                           label="MALE"></p-radioButton>
+                            <p-radioButton name="gender" id="" value="FEMALE" formControlName="gender"
+                                           label="FEMALE" class="ml-8"></p-radioButton>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label for="dob">DOB <span class="required"></span></label>
+                        <p-calendar id="dob" dateFormat="yy-mm-dd" formControlName="dob"></p-calendar>
+                    </div>
+                    <div class="field">
+                        <label for="phone">Phone <span class="required"></span></label>
+                        <input pInputText id="phone" type="text" formControlName="phone"/>
+                    </div>
+                    <div class="field">
+                        <label for="address">Address</label>
+                        <textarea id="address" [rows]="5" [cols]="30" pInputTextarea
+                                  [autoResize]="true" formControlName="address"></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</ng-template>

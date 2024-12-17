@@ -1,0 +1,24 @@
+<div class="grid" *ngIf="loadingService.isLoading; else detail">
+    <div class="col">Loading ...</div>
+</div>
+<ng-template #detail>
+   <div class="grid">
+       <div class="col-4">
+           <h3>Customer Detail</h3>
+       </div>
+       <div class="col-8 text-right">
+           <p-button type="button" label="Back to list" icon="pi pi-arrow-left" routerLink="/customer/list" styleClass="p-button-secondary mr-1"></p-button>
+           <p-button type="button" label="Edit" icon="pi pi-pencil" routerLink="/customer/edit/{{record.id}}"></p-button>
+       </div>
+   </div>
+    <div class="grid p-fluid">
+        <div class="col-12 md:col-4">{{record.customerName}}</div>
+        <div class="col-12 md:col-4">{{record.gender}}</div>
+        <div class="col-12 md:col-4">{{record.dob}}</div>
+        <div class="col-12 md:col-4">{{record.phone}}</div>
+        <div class="col-12 md:col-4">{{record.address}}</div>
+        <div class="col-12 md:col-4">{{record.status}}</div>
+    </div>
+</ng-template>
+
+

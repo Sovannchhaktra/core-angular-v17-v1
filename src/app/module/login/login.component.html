@@ -1,0 +1,39 @@
+<div class="login-body">
+    <div class="login-topbar">
+        <a href="#" class="logo">
+            <img src="assets/layout/images/ecuador-logo.png" alt="ecuador-layout"/>
+        </a>
+    </div>
+    <div class="login-image">
+        <div class="login-panel">
+            <img src="assets/layout/images/ecuador-orange-logo.png" alt="ecuador-layout"/>
+            <form [formGroup]="f" (ngSubmit)="login(f.value)">
+                <div class="p-col-12">
+                    <div class="input-wrapper">
+                        <input type="text" autocomplete="off" placeholder="Username" pInputText
+                               formControlName="username">
+                    </div>
+                </div>
+                <div class="p-col-12">
+                    <div class="input-wrapper">
+                        <input type="password" autocomplete="off" placeholder="Password" pInputText
+                               formControlName="password">
+                    </div>
+                </div>
+                <div class="checkbox-container">
+                    <!--                <div class="remember-me">-->
+                    <!--                    <p-checkbox binary="true"></p-checkbox>-->
+                    <!--                    <span>Remember me</span>-->
+                    <!--                </div>-->
+                    <button type="submit" pButton label="Login"></button>
+                </div>
+            </form>
+            <div class="separator"></div>
+
+            <a href="#" class="subinfo">
+                <span>Forgot your password?</span>
+            </a>
+
+        </div>
+    </div>
+</div>
